@@ -1,0 +1,152 @@
+// .Section-Three-FilterTab {
+//     margin: 10px;
+//     padding: 0px;
+//     box-sizing: border-box;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: flex-start;
+//     align-self: flex-start;
+//     width: 300px;
+// }
+
+.Section-Three-Price {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100px;
+}
+.Section-Three-Price-Title {
+	color: rgb(56, 56, 56);
+	font-size: 25px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.Section-Three-Price-Filter {
+	width: 100%;
+	margin: 10px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.Section-Three-Price-Filter-Input {
+	color: rgb(216, 216, 216);
+	text-align: center;
+	border: unset;
+	background-color: grey;
+	width: 100px;
+	height: 30px;
+	border-radius: 15px;
+	padding: 5px;
+	margin: 5px;
+	box-sizing: border-box;
+}
+
+.Section-Three-FilterTab-Card {
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	border-bottom: 1px solid rgb(196, 196, 196);
+}
+
+.Section-Three-FilterTab-Card-Switch {
+	display: none;
+	border: unset;
+	&:checked + .Section-Three-FilterTab-Card-Hidden {
+		opacity: 1;
+		.Section-Three-FilterTab-Card-Hidden-Card {
+			height: 50px;
+			transition: 1s;
+		}
+	}
+}
+
+.Section-Three-FilterTab-Card-Visible {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Section-Three-FilterTab-Card-Visible {
+	cursor: pointer;
+}
+
+.Section-Three-FilterTab-Card-Visible-Icon {
+	animation: animate 3s ease-in-out infinite;
+}
+
+@keyframes animate {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
+
+// Section-Three-FilterTab-Card-Visible-Icon
+
+.Section-Three-FilterTab-Card-Visible-Font {
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	// letter-spacing: 1px;
+	color: rgb(56, 56, 56);
+}
+
+.Section-Three-FilterTab-Card-Hidden {
+	opacity: 0;
+	margin: 5px;
+	padding: 0px;
+	width: 100%;
+	box-sizing: border-box;
+	transition: 1s;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.Section-Three-FilterTab-Card-Hidden-Card {
+	margin: 0px;
+	padding: 0px;
+	height: 0px;
+	width: 70%;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	flex-direction: row;
+	transition: 1s;
+}
+
+.Section-Three-FilterTab-Card-Hidden-Card > div {
+	margin: 10px;
+	font-size: 15px;
+	font-weight: 500;
+	color: rgb(68, 68, 68);
+}

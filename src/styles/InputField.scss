@@ -1,0 +1,97 @@
+.SearchTabContainer {
+	margin: 0px;
+	padding: 0px;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	width: 300px;
+}
+
+.InputField {
+	color: white;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	position: relative;
+	padding: 0px;
+	height: 56px;
+	width: 56px;
+	border-radius: 28px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	border: 3px solid #ed1c24;
+	transition: 1s;
+}
+.CheckField {
+	display: none;
+	&:checked + .InputField {
+		background-color: white;
+		justify-content: flex-end;
+		border: 3px solid #ed1c24;
+		width: 300px;
+		transition: 1s;
+		.SearchInput {
+			transition: 1s;
+			visibility: initial;
+			opacity: 1;
+			display: flex;
+			margin: 2px;
+			padding: 10px;
+			height: 40px;
+			width: 240px;
+			box-sizing: border-box;
+			border-radius: 25px;
+			background-color: rgba(255, 255, 255, 0);
+			border: unset;
+		}
+	}
+	border: unset;
+}
+
+.SearchInput {
+	color: rgb(48, 48, 48);
+	font-size: 20px;
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	margin: 0px;
+	padding: 10px;
+	left: 4px;
+	height: 40px;
+	width: 0;
+	box-sizing: border-box;
+	border-radius: 25px;
+	border: unset;
+}
+
+.InputField-Icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 5px;
+	padding: 0px;
+	height: 40px;
+	width: 40px;
+	box-sizing: border-box;
+	border-radius: 25px;
+	cursor: pointer;
+	border: unset;
+}
+
+.InputField-Icon:hover {
+	transition: 0.25s;
+	transform: scale(1.1);
+}
+
+.InputField-Icon:active {
+	transition: 0.25s;
+	transform: scale(1);
+	color: rgb(88, 88, 88);
+}
+
+@media only screen and (max-width: 1000px) {
+	.SearchTabContainer {
+		display: none;
+	}
+}

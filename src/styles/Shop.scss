@@ -1,0 +1,324 @@
+.Section-Three-Shop {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.Section-Three-Shop-SortTab {
+	margin: 5px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	width: 100%;
+	justify-content: right;
+	align-items: center;
+	flex-direction: row;
+}
+
+// .Section-Three-Shop-SortTab-Selection{
+//   border: unset;
+// }
+.Section-Three-Shop-Cards {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.BikeCard {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	width: 95%;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	border-bottom: 1px solid rgb(196, 196, 196);
+}
+.BikeCard-One {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+.BikeCard-One-Photo {
+	margin: 10px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	height: 200px;
+	width: 200px;
+	justify-content: center;
+	align-items: center;
+}
+.BikeCard-One-Photo-Img {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	box-sizing: border-box;
+}
+.BikeCard-One-Data {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	width: 200px;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.BikeCard-One-Data > div {
+	margin: 5px;
+}
+
+.BikeCard-One-Data-Trans {
+	font-size: 10px;
+	font-weight: 600;
+	color: rgb(17, 199, 129);
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	height: 30px;
+	width: 160px;
+	border-radius: 20px;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	border: 3px solid rgb(17, 199, 129);
+}
+.BikeCard-One-Data-Path {
+	font-size: 15px;
+	font-weight: 500;
+	color: rgb(87, 87, 87);
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+.BikeCard-One-Data-Name {
+	font-size: 25px;
+	font-weight: 500;
+	color: rgb(87, 87, 87);
+	letter-spacing: 2px;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+.BikeCard-One-Data-Grade {
+	font-size: 15px;
+	font-weight: 600;
+	color: #ffa500;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+.BikeCard-Two {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+.BikeCard-Two-Price {
+	font-size: 25px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	margin: 10px;
+	padding: 0px;
+	width: 120px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+.BikeCard-Two-Options {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+// .BikeCard-Two-Options-Check{
+//     font-size:25px;
+//     font-weight: 500;
+//     color: rgb(87, 87, 87);
+//     letter-spacing: 2px;
+//    margin:15px;
+//    padding: 0px;
+//    width: 275px;
+//    height: 70px;
+//    border-radius: 35px;
+//    box-sizing: border-box;
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//    flex-direction: row;
+
+//
+// }
+.BikeCard-Two-Options-Option {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+.BikeCard-Two-Options-Option-Favorite {
+	font-size: 18px;
+	font-weight: 500;
+	color: rgb(87, 87, 87);
+
+	margin: 5px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+.BikeCard-Two-Options-Option-Compare {
+	font-size: 18px;
+	font-weight: 500;
+	color: rgb(87, 87, 87);
+	margin: 10px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+/////////////////////////////////////////////////////////
+.custom-btn {
+	width: 200px;
+	height: 50px;
+	margin: 15px;
+	color: #fff;
+	letter-spacing: 1.5px;
+	padding: 10px 25px;
+	font-family: "Lato", sans-serif;
+	font-weight: 700;
+	font-size: 20px;
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	-webkit-box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
+	outline: none;
+}
+
+.custom-btn:active {
+	transform: scale(0.9);
+	transition: 0.5s;
+}
+
+.btn-7 {
+	background: rgb(49, 49, 49);
+	line-height: 42px;
+	padding: 0;
+	border: none;
+}
+.btn-7 span {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.btn-7:before,
+.btn-7:after {
+	position: absolute;
+	content: "";
+	right: 0;
+	bottom: 0;
+	background: rgb(77, 77, 77);
+	box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
+		-4px -4px 5px 0px rgba(255, 255, 255, 0.9),
+		7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease;
+}
+.btn-7:before {
+	height: 0%;
+	width: 2px;
+}
+.btn-7:after {
+	width: 0%;
+	height: 2px;
+}
+.btn-7:hover {
+	color: rgb(77, 77, 77);
+	background: transparent;
+}
+.btn-7:hover:before {
+	height: 100%;
+}
+.btn-7:hover:after {
+	width: 100%;
+}
+.btn-7 span:before,
+.btn-7 span:after {
+	position: absolute;
+	content: "";
+	left: 0;
+	top: 0;
+	background: rgb(77, 77, 77);
+	box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
+		-4px -4px 5px 0px rgba(255, 255, 255, 0.9),
+		7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease;
+}
+.btn-7 span:before {
+	width: 2px;
+	height: 0%;
+}
+.btn-7 span:after {
+	height: 2px;
+	width: 0%;
+}
+.btn-7 span:hover:before {
+	height: 100%;
+}
+.btn-7 span:hover:after {
+	width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+	.Section-Three-Shop {
+		width: 100%;
+	}
+}

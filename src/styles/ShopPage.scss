@@ -1,0 +1,102 @@
+.ShopPage {
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	width: 70%;
+}
+.Section-One {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid rgb(196, 196, 196);
+}
+
+.Section-One > div {
+	margin: 20px;
+}
+.Section-One-Count {
+	font-size: 25px;
+	font-weight: 600;
+	color: rgb(56, 56, 56);
+}
+.Section-One-Path {
+	font-size: 20px;
+	font-weight: 500;
+	color: rgb(88, 88, 88);
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+.Section-Two {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: row;
+	border-bottom: 1px solid rgb(196, 196, 196);
+}
+
+.Section-Two > div {
+	margin: 20px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+.Section-Two > div > div {
+	color: rgb(80, 80, 80);
+	font-weight: 500;
+	font-size: 13px;
+	margin: 10px;
+}
+.Section-Two > div > div:hover {
+	color: rgb(190, 37, 37);
+}
+
+.Section-Three {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+.Section-Three-FilterTab {
+	margin: 10px;
+	padding: 0px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	align-self: flex-start;
+	width: 300px;
+
+	// margin:0px;
+	// padding: 0px;
+	// box-sizing: border-box;
+	// width: 30%;
+	// display: flex;
+	// justify-content: center;
+	// align-items: center;
+	// flex-direction: row;
+}
+
+@media only screen and (max-width: 1000px) {
+	.Section-Three-FilterTab {
+		display: none;
+	}
+}

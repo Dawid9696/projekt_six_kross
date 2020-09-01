@@ -1,0 +1,65 @@
+.Carousel {
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 850px;
+}
+
+.Carousel-Content {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	bottom: 180px;
+	transform-style: preserve-3d;
+	animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+	0% {
+		transform: perspective(1000px) rotateY(0deg);
+	}
+	100% {
+		transform: perspective(1000px) rotateY(360deg);
+	}
+}
+
+.Carousel-Content > div > img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.scrollTop {
+	position: fixed;
+	bottom: 40px;
+	right: 40px;
+	width: 60px;
+	height: 60px;
+	border-radius: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 5px solid grey;
+	background-color: white;
+	z-index: 100;
+	visibility: visible;
+	opacity: 1;
+	transition: 1s;
+}
+
+.scrollTop:hover {
+	cursor: pointer;
+	transition: 0.5s;
+	transform: scale(1.05);
+}
+
+.scrollTop:active {
+	cursor: pointer;
+	transition: 0.5s;
+	transform: scale(0.9);
+}

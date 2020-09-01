@@ -1,0 +1,44 @@
+.MainPage {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 800px;
+	// border: 1px solid red;
+}
+
+.MainPage-Slider {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 800px;
+	border: 1px solid red;
+}
+
+.NewsScroll {
+	text-decoration: none;
+
+	margin: 20px;
+	padding: 0px;
+	box-sizing: border-box;
+	width: 300px;
+	-webkit-box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
+	transition: all 0.5s;
+}
+
+.NewsScroll:hover {
+	cursor: grab;
+	transform: scale(1.05);
+	transition: all 0.5s;
+	z-index: 2;
+}
+
+.NewsHeader {
+	font-size: 25px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	// letter-spacing: 1px;
+	color: rgb(56, 56, 56);
+}

@@ -1,0 +1,99 @@
+.Contact {
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	margin: 0px;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+	height: 350px;
+	background-color: black;
+}
+
+.Contact-Photo {
+	position: relative;
+	bottom: -100px;
+}
+.Contact-Photo-Img {
+	width: 100%;
+}
+.Contact-Form {
+	margin: 0px;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 50%;
+	height: 500px;
+}
+
+.Contact-Form > div {
+	margin: 40px;
+}
+
+.Contact-InputField {
+	color: white;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	position: relative;
+	padding: 0px;
+	height: 56px;
+	width: 300px;
+	border-radius: 28px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	box-sizing: border-box;
+	background-color: white;
+	border: 3px solid #ed1c24;
+	transition: 1s;
+	border: unset;
+}
+
+.Contact-SearchInput {
+	transition: 1s;
+	visibility: initial;
+	opacity: 1;
+	display: flex;
+	margin: 2px;
+	padding: 10px;
+	height: 40px;
+	width: 240px;
+	box-sizing: border-box;
+	border-radius: 25px;
+	background-color: rgba(255, 255, 255, 0);
+	border: unset;
+}
+
+.Contact-InputField-Icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 5px;
+	padding: 0px;
+	height: 40px;
+	width: 40px;
+	box-sizing: border-box;
+	border-radius: 25px;
+	cursor: pointer;
+	border: unset;
+}
+
+.Contact-InputField-Icon:hover {
+	transition: 0.25s;
+	transform: scale(1.1);
+}
+
+.Contact-InputField-Icon:active {
+	transition: 0.25s;
+	transform: scale(1);
+	color: rgb(88, 88, 88);
+}
+
+@media only screen and (max-width: 1000px) {
+	.Contact-Photo {
+		display: none;
+	}
+}

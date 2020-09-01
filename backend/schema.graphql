@@ -1,0 +1,123 @@
+type Query {
+	users: [User!]!
+	user(id: ID!): User
+	bikes: [Bike!]!
+	bike(id: ID!): Bike
+}
+
+type User {
+	id: ID!
+	admin: Boolean!
+	name: String!
+	surname: String!
+	email: String!
+	password: String!
+	photo: String
+	postalCode: String
+	creditCard: String
+	numberOfHome: Int
+	street: String
+	city: String
+	shoppingCart: [Bike!]!
+}
+
+type Bike {
+	id: ID!
+	bikeName: String!
+	bikePrice: Int!
+	bikeRatio: Int!
+	bikeColor: [String!]!
+	bikeModel: String
+	bikeYear: Int
+	bikePhotos: [String!]!
+	bikeTransport: Boolean
+	bikeDesc: String!
+	bikeSale: Boolean
+	bikeSaleNewPrice: Int
+	bikeWeight: Float!
+	bikeFrame: String!
+	bikeComments: [Comment!]
+}
+
+type Comment {
+	id: ID!
+	comment: String!
+	commentDate: String!
+	commentRatio: Int!
+	commentedBy: User!
+	inBike: Bike!
+}
+
+type Mutation {
+	createUser(userData: CreateUserInput): AuthPayLoad!
+	createBike(bikeData: CreateBikeInput): Bike!
+	createComment(commentData: CreateCommentInput): Comment!
+
+	updateUser(updateData: UpdateUserInput!): User!
+	updateBike(updateBike: UpdateBikeInput!, id: ID!): Bike!
+
+	addToShoppingCart(id: ID!): User
+	deleteFromShoppingCart(id: ID!): User!
+
+	deleteUser: User!
+	deleteBike(id: ID!): Bike!
+	deleteComment(id: ID!): Comment!
+
+	logIn(email: String!, password: String!): AuthPayLoad!
+}
+
+type AuthPayLoad {
+	newUser: User
+	token: String
+}
+
+input LogInInput {
+	email: String!
+	password: String!
+}
+
+input CreateUserInput {
+	name: String!
+	surname: String!
+	email: String!
+	password: String
+}
+
+input CreateBikeInput {
+	bikeName: String!
+	bikePrice: Int!
+	bikeColor: [String!]
+	bikePhotos: [String!]!
+	bikeDesc: String!
+	bikeWeight: Float!
+	bikeYear: Int!
+	bikeModel: String!
+	bikeFrame: String!
+}
+
+input CreateCommentInput {
+	comment: String!
+	inBike: ID!
+}
+
+input UpdateUserInput {
+	photo: String!
+	creditCard: String!
+	postalCode: String!
+	numberOfHome: Int!
+	street: String!
+	city: String!
+}
+
+input UpdateBikeInput {
+	bikeName: String!
+	bikePrice: Int!
+	bikeRatio: Int!
+	bikeColor: String!
+	bikePhotos: [String!]!
+	bikeDesc: String!
+	bikeSale: Boolean!
+	bikeSaleNewPrice: Int!
+	bikeWeight: Float!
+	bikeFrame: String!
+}
