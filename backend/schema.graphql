@@ -1,6 +1,9 @@
+# @format
+
 type Query {
 	users: [User!]!
 	user(id: ID!): User
+	myProfile: User!
 	bikes: [Bike!]!
 	bike(id: ID!): Bike
 }
@@ -25,8 +28,9 @@ type Bike {
 	id: ID!
 	bikeName: String!
 	bikePrice: Int!
-	bikeRatio: Int!
+	bikeRatio: Int
 	bikeColor: [String!]!
+	bikeType: String
 	bikeModel: String
 	bikeYear: Int
 	bikePhotos: [String!]!

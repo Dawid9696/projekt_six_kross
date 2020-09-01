@@ -9,7 +9,6 @@ import ScrollContainer from "react-indiana-drag-scroll";
 
 //ICONS
 import { AiFillStar } from "react-icons/ai";
-import { ImArrowLeft, ImArrowRight } from "react-icons/im";
 
 const BIKES = gql`
 	query {
@@ -59,7 +58,12 @@ function News() {
 								<CardPhoto cardPhoto={card.bikePhotos[0]}></CardPhoto>
 								<div className='BikeCard-One-Data-Ratio'>
 									{" "}
-									<p>5</p> <AiFillStar color='#ffa500' size='30px' style={{ margin: "0px" }} />
+									<p>5</p>{" "}
+									<AiFillStar
+										color='#ffa500'
+										size='30px'
+										style={{ margin: "0px" }}
+									/>
 								</div>
 								<CardName>{card.bikeName}</CardName>
 								<CardPrice>{card.bikePrice} zł</CardPrice>

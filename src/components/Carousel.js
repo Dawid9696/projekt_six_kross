@@ -2,8 +2,6 @@
 
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
-import Loader from "./Loader";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const BIKES = gql`
@@ -21,9 +19,6 @@ const BIKES = gql`
 
 function Carousel() {
 	const { loading, error, data } = useQuery(BIKES);
-
-	console.log(data);
-
 	return (
 		<div className='Carousel'>
 			<div className='Carousel-Content'>
@@ -34,10 +29,20 @@ function Carousel() {
 						return (
 							<React.Fragment>
 								<Rotate variable={index}>
-									<Card className='NewsScroll' to={`Rowery/${data.bikes[index].id}`}>
-										<CardPhoto cardPhoto={data.bikes[index].bikePhotos[0]}></CardPhoto>
+									<Card
+										className='NewsScroll'
+										to={`Rowery/${data.bikes[index].id}`}
+									>
+										<CardPhoto
+											cardPhoto={
+												data.bikes[index]
+													.bikePhotos[0]
+											}
+										></CardPhoto>
 										<CardName>{data.bikes[index].bikeName}</CardName>
-										<CardPrice>{data.bikes[index].bikePrice} zł</CardPrice>
+										<CardPrice>
+											{data.bikes[index].bikePrice} zł
+										</CardPrice>
 									</Card>
 								</Rotate>
 							</React.Fragment>

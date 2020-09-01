@@ -5,8 +5,6 @@ import { useQuery, gql, NetworkStatus } from "@apollo/client";
 import { Link } from "react-router-dom";
 import Loader from "./Loader";
 
-import styled from "styled-components";
-
 import { AiOutlineSortAscending, AiFillStar, AiOutlineArrowUp, AiOutlinePlus } from "react-icons/ai";
 
 import { GiReturnArrow } from "react-icons/gi";
@@ -124,7 +122,6 @@ function ShopPage(props) {
 			],
 		},
 	];
-
 	return (
 		<section className='ShopPage'>
 			<div className='Section-One'>
@@ -136,7 +133,7 @@ function ShopPage(props) {
 					<div>
 						<GiReturnArrow size='30px' color='grey' />
 					</div>
-					<div>Gwarancja zwrotu do 100 dni </div>
+					<div>Gwarancja zwrotu do 100 dni</div>
 				</div>
 				<div>
 					<div>
@@ -162,21 +159,38 @@ function ShopPage(props) {
 					<div className='Section-Three-Price'>
 						<div className='Section-Three-Price-Title'>CENA</div>
 						<div className='Section-Three-Price-Filter'>
-							<input className='Section-Three-Price-Filter-Input' type='text' placeholder='Od..' />
+							<input
+								className='Section-Three-Price-Filter-Input'
+								type='text'
+								placeholder='Od..'
+							/>
 							<div>-</div>
-							<input className='Section-Three-Price-Filter-Input' type='text' placeholder='Do..' />
+							<input
+								className='Section-Three-Price-Filter-Input'
+								type='text'
+								placeholder='Do..'
+							/>
 						</div>
 					</div>
 					{option.map((item) => {
 						return (
 							<div className='Section-Three-FilterTab-Card'>
-								<div className='Section-Three-FilterTab-Card-Visible' onClick={item.toggle}>
-									<div className='Section-Three-FilterTab-Card-Visible-Font'>{item.type}</div>
+								<div
+									className='Section-Three-FilterTab-Card-Visible'
+									onClick={item.toggle}
+								>
+									<div className='Section-Three-FilterTab-Card-Visible-Font'>
+										{item.type}
+									</div>
 									<div className='Section-Three-FilterTab-Card-Visible-Icon'>
 										<AiOutlinePlus size='25px' />
 									</div>
 								</div>
-								<input className='Section-Three-FilterTab-Card-Switch' type='checkbox' checked={item.drop} />
+								<input
+									className='Section-Three-FilterTab-Card-Switch'
+									type='checkbox'
+									checked={item.drop}
+								/>
 								<div className='Section-Three-FilterTab-Card-Hidden'>
 									{item.options[0] != null &&
 										item.options.map((item) => {

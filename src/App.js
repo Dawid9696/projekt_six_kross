@@ -1,12 +1,10 @@
+/** @format */
+
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-import {
-	ApolloClient,
-	createHttpLink,
-	InMemoryCache,
-	ApolloProvider,
-} from "@apollo/client";
+import Modal from "react-modal";
+import { useQuery, gql, ApolloClient, createHttpLink, InMemoryCache, ApolloProvider } from "@apollo/client";
 import "./App.scss";
 import { setContext } from "@apollo/client/link/context";
 
@@ -17,6 +15,7 @@ import DetailPage from "./components/DetailPage";
 import ShopPage from "./components/ShopPage";
 import ScrollToTop from "./components/ScrollToTop";
 import LoginRegister from "./components/LoginRegister";
+import Shopping from "./components/ShoppingCart";
 
 export const LogoContext = React.createContext();
 
@@ -42,9 +41,9 @@ const client = new ApolloClient({
 	cache: new InMemoryCache(),
 });
 
+Modal.setAppElement("#root");
 function App() {
-	const logo =
-		"https://kross.eu/media/cache/filemanager_original/images/logo/logo.png";
+	const logo = "https://kross.eu/media/cache/filemanager_original/images/logo/logo.png";
 
 	return (
 		<MyApp>
@@ -52,13 +51,15 @@ function App() {
 				<LogoContext.Provider value={logo}>
 					<Router>
 						<ScrollToTop />
-						<Navbar />
-						<Switch>
-							<Route path={"/"} exact component={MainPage} />
-							<Route path={"/Shop"} exact component={ShopPage} />
-							<Route path={"/Rowery/:id"} exact component={DetailPage} />
-							<Route path={"/LoginRegister"} exact component={LoginRegister} />
-						</Switch>
+						<Navbar>
+							<Switch>
+								<Route path={"/"} exact component={MainPage} />
+								<Route path={"/Shop"} exact component={ShopPage} />
+								<Route path={"/Rowery/:id"} exact component={DetailPage} />
+								<Route path={"/ShoppingCart"} exact component={Shopping} />
+								<Route path={"/LoginRegister"} exact component={LoginRegister} />
+							</Switch>
+						</Navbar>
 					</Router>
 				</LogoContext.Provider>
 			</ApolloProvider>

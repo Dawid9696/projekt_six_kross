@@ -16,7 +16,8 @@ function Contact() {
 			<div className='Contact-Form'>
 				<h1 style={{ color: "white" }}>Chcesz być na bieżąco?</h1>
 				<h7 style={{ color: "white" }}>
-					Zapisz się i otrzymuj najświeższe informacje na temat nowych modeli marki KROSS, aktualnych promocji i sukcesów drużyny Kross Racing Team.
+					Zapisz się i otrzymuj najświeższe informacje na temat nowych modeli marki KROSS, aktualnych promocji
+					i sukcesów drużyny Kross Racing Team.
 				</h7>
 				<div className='Contact-InputField'>
 					<input className='Contact-SearchInput' type='text' placeholder='Szukaj...' />

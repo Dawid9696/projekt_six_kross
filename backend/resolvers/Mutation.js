@@ -118,6 +118,7 @@ const Mutation = {
 		//AUTHORIZATION
 		const userId = getUserId(ctx.request);
 		const user = await ctx.ModelUser.findById(userId);
+		console.log("Dodaje");
 		if (!userId) throw new Error("User did not find!");
 		try {
 			await user.shoppingCart.push(args.id);
@@ -130,12 +131,14 @@ const Mutation = {
 	deleteFromShoppingCart: async (parent, args, ctx) => {
 		//AUTHORIZATION
 		const userId = getUserId(ctx.request);
+		console.log("DELETING");
 		const user = await ctx.ModelUser.findById(userId);
 		if (!userId) throw new Error("User did not find!");
 		try {
-			const userShoppingCart = await ctx.shoppingCart.filter((item) => {
+			const userShoppingCart = await user.shoppingCart.filter((item) => {
 				return item != args.id;
 			});
+			user.shoppingCart = userShoppingCart;
 			await user.save();
 			return user;
 		} catch (err) {

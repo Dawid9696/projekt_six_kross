@@ -1,0 +1,93 @@
+/** @format */
+
+.Modal {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	top: calc(50% - 200px);
+	right: calc(50% - 300px);
+	width: 600px;
+	height: 400px;
+	border-radius: 25px;
+	background-color: rgb(255, 255, 255);
+	-webkit-box-shadow: 10px 10px 19px 7px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 10px 10px 19px 7px rgba(0, 0, 0, 0.75);
+	box-shadow: 10px 10px 19px 7px rgba(0, 0, 0, 0.75);
+	transition: 1s;
+}
+
+.Modal-Title {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+.Modal-Title-Text {
+	margin: 5px;
+	font-size: 25px;
+	color: grey;
+}
+
+.Modal-Title-Name {
+	font-size: 35px;
+	font-weight: 500;
+	color: rgb(87, 87, 87);
+	letter-spacing: 2px;
+	margin: 5px;
+}
+
+.ModalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(128, 128, 128, 0.267);
+}
+
+.Modal-Button {
+	font-size: 18px;
+	font-weight: 500;
+	color: rgb(219, 219, 219);
+	padding: 0px;
+	margin: 10px;
+	border-radius: 25px;
+	width: 30%;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: grey;
+}
+
+.Modal-Button-Close {
+	font-size: 18px;
+	font-weight: 500;
+	color: rgb(43, 43, 43);
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 10px;
+	width: 100px;
+	height: 50px;
+	border-radius: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: rgba(43, 43, 43, 0.205);
+}
+
+.Modal-Button-Close:hover {
+	cursor: pointer;
+}
+
+.Modal-Button:hover {
+	cursor: pointer;
+}
