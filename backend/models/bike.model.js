@@ -40,7 +40,7 @@ const bikeSchema = new Schema({
 	},
 	bikeYear: { type: Number, trim: true, min: 2000, max: 2030 },
 	bikeRatio: { type: Number, trim: true, min: 0, max: 5 },
-	bikeTransport: { type: Boolean },
+	bikeTransport: { type: Boolean, default: false },
 	bikeColor: [{ type: String, trim: true }],
 	bikePhotos: [{ type: String }],
 	bikeDesc: { type: String, trim: true },

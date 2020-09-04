@@ -10,22 +10,13 @@ import Carousel from "./Carousel";
 import { AiOutlineArrowUp } from "react-icons/ai";
 
 function MainPage(props) {
-	const ScrollToTop = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth",
-		});
-	};
-
+	console.log("RENDER PARENT");
 	return (
 		<section className='MainPage'>
 			<Slideshow />
 			<News />
 			<Contact />
 			<Carousel />
-			<div className='scrollTop' onClick={() => ScrollToTop()}>
-				<AiOutlineArrowUp size='40px' />
-			</div>
 		</section>
 	);
 }

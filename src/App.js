@@ -10,12 +10,12 @@ import { setContext } from "@apollo/client/link/context";
 
 //IMPORTED COMPONENTS
 import Navbar from "./components/Navbar";
-import MainPage from "./components/MainPage";
-import DetailPage from "./components/DetailPage";
-import ShopPage from "./components/ShopPage";
+import MainPage from "./components/MainPage/MainPage";
+import DetailPage from "./components/DetailPage/DetailPage";
+import ShopPage from "./components/ShopPage/ShopPage";
 import ScrollToTop from "./components/ScrollToTop";
 import LoginRegister from "./components/LoginRegister";
-import Shopping from "./components/ShoppingCart";
+import Shopping from "./components/ShopPage/ShoppingCart";
 
 export const LogoContext = React.createContext();
 

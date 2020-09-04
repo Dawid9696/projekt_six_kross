@@ -3,10 +3,11 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import styled from "styled-components";
+import Loader from "../Loader";
 
 const BIKES = gql`
-	query {
-		bikes {
+	query bikes($queries: QueryAllBikesInput) {
+		bikes(queries: $queries) {
 			id
 			bikeName
 			bikePrice
@@ -18,31 +19,42 @@ const BIKES = gql`
 `;
 
 function Carousel() {
-	const { loading, error, data } = useQuery(BIKES);
+	const { loading, error, data, fetchMore, networkStatus } = useQuery(BIKES, {
+		variables: {
+			queries: {
+				skip: 0,
+				limit: 5,
+				lowPrice: 0,
+				sort: 1,
+				highPrice: 20000,
+				// sales: true,
+				// transport: true,
+				// popular: true,
+				// type: ["Szosowe"],
+				// model: ["Road"],
+				// color: ["Red"],
+				// // frame: ["Tytan"],
+				// year: [2019],
+			},
+		},
+		notifyOnNetworkStatusChange: true,
+		// pollInterval: 3000,
+		fetchPolicy: "cache-and-network",
+	});
 	return (
 		<div className='Carousel'>
 			<div className='Carousel-Content'>
 				{loading ? (
-					<p>Loading..</p>
+					<Loader />
 				) : (
 					data.bikes.map((item, index) => {
 						return (
 							<React.Fragment>
 								<Rotate variable={index}>
-									<Card
-										className='NewsScroll'
-										to={`Rowery/${data.bikes[index].id}`}
-									>
-										<CardPhoto
-											cardPhoto={
-												data.bikes[index]
-													.bikePhotos[0]
-											}
-										></CardPhoto>
+									<Card className='NewsScroll' to={`Rowery/${data.bikes[index].id}`}>
+										<CardPhoto cardPhoto={data.bikes[index].bikePhotos[0]}></CardPhoto>
 										<CardName>{data.bikes[index].bikeName}</CardName>
-										<CardPrice>
-											{data.bikes[index].bikePrice} zł
-										</CardPrice>
+										<CardPrice>{data.bikes[index].bikePrice} zł</CardPrice>
 									</Card>
 								</Rotate>
 							</React.Fragment>

@@ -11,8 +11,8 @@ import ScrollContainer from "react-indiana-drag-scroll";
 import { AiFillStar } from "react-icons/ai";
 
 const BIKES = gql`
-	query {
-		bikes {
+	query bikes($queries: QueryAllBikesInput) {
+		bikes(queries: $queries) {
 			id
 			bikeName
 			bikePrice
@@ -24,7 +24,28 @@ const BIKES = gql`
 `;
 
 function News() {
-	const { loading, error, data } = useQuery(BIKES);
+	const { loading, error, data, fetchMore, networkStatus } = useQuery(BIKES, {
+		variables: {
+			queries: {
+				skip: 0,
+				limit: 5,
+				lowPrice: 0,
+				sort: 1,
+				highPrice: 20000,
+				// sales: true,
+				// transport: true,
+				// popular: true,
+				// type: ["Szosowe"],
+				// model: ["Road"],
+				// color: ["Red"],
+				// // frame: ["Tytan"],
+				// year: [2019],
+			},
+		},
+		notifyOnNetworkStatusChange: true,
+		// pollInterval: 3000,
+		fetchPolicy: "cache-and-network",
+	});
 
 	const [textStyle, setTextStyle] = useState({
 		right: "800px",
@@ -58,12 +79,7 @@ function News() {
 								<CardPhoto cardPhoto={card.bikePhotos[0]}></CardPhoto>
 								<div className='BikeCard-One-Data-Ratio'>
 									{" "}
-									<p>5</p>{" "}
-									<AiFillStar
-										color='#ffa500'
-										size='30px'
-										style={{ margin: "0px" }}
-									/>
+									<p>5</p> <AiFillStar color='#ffa500' size='30px' style={{ margin: "0px" }} />
 								</div>
 								<CardName>{card.bikeName}</CardName>
 								<CardPrice>{card.bikePrice} zł</CardPrice>

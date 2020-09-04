@@ -13,21 +13,11 @@ const Mutation = {
 		const newUser = user[0];
 		return { newUser, token: jwt.sign({ userId: user[0].id }, "secret") };
 	},
-	// logOut: async (parent,args,ctx) => {
-	//     const user = await ctx.User.find().where({email:args.email})
-	//     if(!user) throw new Error('User do not exist!')
-	//     const isMatch = bcrypt.compare(toString(args.password),user[0].password)
-	//     if(!isMatch) throw new Error('No match!')
-	//     console.log(user[0].id)
-	//     return {user,token:jwt.sign({userId:user[0].id},'secret')}
-	// },
 	createUser: async (parent, args, ctx) => {
 		try {
 			args.userData.password = await bcrypt.hash(args.userData.password, 10);
 			const newUser = new ctx.ModelUser({ ...args.userData });
-			console.log(newUser);
 			await newUser.save();
-			console.log(newUser);
 			return { newUser, token: jwt.sign({ userId: newUser.id }, "secret") };
 		} catch (err) {
 			throw new Error(err);
@@ -81,8 +71,6 @@ const Mutation = {
 			throw new Error(err);
 		}
 	},
-
-	// ////////////////////////////////////////////
 	deleteUser: async (parent, args, ctx) => {
 		//AUTHORIZATION
 		const userId = getUserId(ctx.request);
@@ -110,6 +98,7 @@ const Mutation = {
 		if (comment.commentedBy != userId) throw new Error("Can not delete comment!");
 		try {
 			await comment.remove();
+			return comment;
 		} catch (err) {
 			throw new Error(err);
 		}
@@ -118,7 +107,6 @@ const Mutation = {
 		//AUTHORIZATION
 		const userId = getUserId(ctx.request);
 		const user = await ctx.ModelUser.findById(userId);
-		console.log("Dodaje");
 		if (!userId) throw new Error("User did not find!");
 		try {
 			await user.shoppingCart.push(args.id);
@@ -131,7 +119,6 @@ const Mutation = {
 	deleteFromShoppingCart: async (parent, args, ctx) => {
 		//AUTHORIZATION
 		const userId = getUserId(ctx.request);
-		console.log("DELETING");
 		const user = await ctx.ModelUser.findById(userId);
 		if (!userId) throw new Error("User did not find!");
 		try {

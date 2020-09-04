@@ -66,24 +66,13 @@ function LoginRegister(props) {
 								<label for='user' className='label'>
 									E-mail
 								</label>
-								<input
-									id='user'
-									type='text'
-									className='input'
-									onChange={(e) => setEmail(e.target.value)}
-								/>
+								<input id='user' type='text' className='input' onChange={(e) => setEmail(e.target.value)} />
 							</div>
 							<div className='group'>
 								<label for='pass' className='label'>
 									Password
 								</label>
-								<input
-									id='pass'
-									type='password'
-									className='input'
-									data-type='password'
-									onChange={(e) => setPassword(e.target.value)}
-								/>
+								<input id='pass' type='password' className='input' data-type='password' onChange={(e) => setPassword(e.target.value)} />
 							</div>
 							<div className='group'>
 								<input id='check' type='checkbox' className='check' checked />
@@ -111,47 +100,25 @@ function LoginRegister(props) {
 								<label for='user' className='label'>
 									Username
 								</label>
-								<input
-									id='user'
-									type='text'
-									className='input'
-									onChange={(e) => setName(e.target.value)}
-								/>
+								<input id='user' type='text' className='input' onChange={(e) => setName(e.target.value)} />
 							</div>
 							<div className='group'>
 								<label for='pass' className='label'>
 									Password
 								</label>
-								<input
-									id='pass'
-									type='password'
-									className='input'
-									data-type='password'
-									onChange={(e) => setSurname(e.target.value)}
-								/>
+								<input id='pass' type='password' className='input' data-type='password' onChange={(e) => setSurname(e.target.value)} />
 							</div>
 							<div className='group'>
 								<label for='pass' className='label'>
 									Repeat Password
 								</label>
-								<input
-									id='pass'
-									type='password'
-									className='input'
-									data-type='password'
-									onChange={(e) => setPassword(e.target.value)}
-								/>
+								<input id='pass' type='password' className='input' data-type='password' onChange={(e) => setPassword(e.target.value)} />
 							</div>
 							<div className='group'>
 								<label for='pass' className='label'>
 									Email Address
 								</label>
-								<input
-									id='pass'
-									type='text'
-									className='input'
-									onChange={(e) => setEmail(e.target.value)}
-								/>
+								<input id='pass' type='text' className='input' onChange={(e) => setEmail(e.target.value)} />
 							</div>
 							<div className='group'>
 								<input

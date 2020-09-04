@@ -4,7 +4,7 @@ type Query {
 	users: [User!]!
 	user(id: ID!): User
 	myProfile: User!
-	bikes: [Bike!]!
+	bikes(queries: QueryAllBikesInput): [Bike!]!
 	bike(id: ID!): Bike
 }
 
@@ -30,9 +30,9 @@ type Bike {
 	bikePrice: Int!
 	bikeRatio: Int
 	bikeColor: [String!]!
-	bikeType: String
-	bikeModel: String
-	bikeYear: Int
+	bikeType: String!
+	bikeModel: String!
+	bikeYear: Int!
 	bikePhotos: [String!]!
 	bikeTransport: Boolean
 	bikeDesc: String!
@@ -58,7 +58,7 @@ type Mutation {
 	createComment(commentData: CreateCommentInput): Comment!
 
 	updateUser(updateData: UpdateUserInput!): User!
-	updateBike(updateBike: UpdateBikeInput!, id: ID!): Bike!
+	updateBike(updateBike: UpdateBikeInput!, id: ID!): Bike
 
 	addToShoppingCart(id: ID!): User
 	deleteFromShoppingCart(id: ID!): User!
@@ -75,16 +75,31 @@ type AuthPayLoad {
 	token: String
 }
 
+input QueryAllBikesInput {
+	limit: Int
+	skip: Int
+	lowPrice: Int
+	highPrice: Int
+	type: [String!]
+	model: [String!]
+	color: [String!]
+	frame: [String!]
+	year: [Int!]
+	sort: Int
+}
+
 input LogInInput {
 	email: String!
 	password: String!
 }
 
 input CreateUserInput {
+	admin: Boolean
 	name: String!
 	surname: String!
 	email: String!
-	password: String
+	password: String!
+	photo: String!
 }
 
 input CreateBikeInput {
@@ -94,6 +109,7 @@ input CreateBikeInput {
 	bikePhotos: [String!]!
 	bikeDesc: String!
 	bikeWeight: Float!
+	bikeType: String!
 	bikeYear: Int!
 	bikeModel: String!
 	bikeFrame: String!
@@ -114,14 +130,18 @@ input UpdateUserInput {
 }
 
 input UpdateBikeInput {
-	bikeName: String!
-	bikePrice: Int!
-	bikeRatio: Int!
-	bikeColor: String!
-	bikePhotos: [String!]!
-	bikeDesc: String!
-	bikeSale: Boolean!
-	bikeSaleNewPrice: Int!
-	bikeWeight: Float!
-	bikeFrame: String!
+	bikeName: String
+	bikePrice: Int
+	bikeRatio: Int
+	bikeColor: String
+	bikePhotos: [String!]
+	bikeDesc: String
+	bikeType: String
+	bikeTransport: Boolean
+	bikeYear: Int
+	bikeModel: String
+	bikeSale: Boolean
+	bikeSaleNewPrice: Int
+	bikeWeight: Float
+	bikeFrame: String
 }

@@ -6,12 +6,12 @@ import { useParams } from "react-router-dom";
 import Modal from "react-modal";
 
 //ICONS
-import { RiSendPlaneFill } from "react-icons/ri";
+import { RiChatDeleteFill, RiSendPlaneFill } from "react-icons/ri";
 import { AiFillStar } from "react-icons/ai";
 
 //COMPONENTS
-import Loader from "./Loader";
-import { MyProfileContext } from "./Navbar";
+import Loader from "../Loader";
+import { MyProfileContext } from "../Navbar";
 
 const BIKE = gql`
 	query bike($id: ID!) {
@@ -23,11 +23,16 @@ const BIKE = gql`
 			bikeDesc
 			bikeColor
 			bikeYear
+			bikeTransport
 			bikePrice
 			bikePhotos
+			bikeSale
+			bikeSaleNewPrice
 			bikeComments {
+				id
 				comment
 				commentedBy {
+					id
 					name
 					surname
 					photo
@@ -40,6 +45,14 @@ const BIKE = gql`
 const ADD_COMMENT = gql`
 	mutation createComment($commentData: CreateCommentInput!) {
 		createComment(commentData: $commentData) {
+			comment
+		}
+	}
+`;
+
+const DELETE_COMMENT = gql`
+	mutation deleteComment($id: ID!) {
+		deleteComment(id: $id) {
 			comment
 		}
 	}
@@ -63,9 +76,12 @@ function DetailPage() {
 		variables: { id },
 		pollInterval: 500,
 	});
+
 	const jwt = localStorage.getItem("token");
 	const [createComment] = useMutation(ADD_COMMENT);
+	const [deleteComment] = useMutation(DELETE_COMMENT);
 	const [addToShoppingCart] = useMutation(ADD_TO_SHOPPINGCART);
+
 	if (error) return <div>Error</div>;
 
 	return (
@@ -99,22 +115,13 @@ function DetailPage() {
 					<div className='DetailPage-One'>
 						<div className='DetailPage-One-Photos'>
 							<div className='DetailPage-One-Photos-BigPhoto'>
-								<img
-									className='DetailPage-One-Photos-BigPhoto-Img'
-									src={data.bike.bikePhotos[bigPhoto]}
-								/>
+								<img className='DetailPage-One-Photos-BigPhoto-Img' src={data.bike.bikePhotos[bigPhoto]} />
 							</div>
 							<div className='DetailPage-One-Photos-SmallPhotos'>
 								{data.bike.bikePhotos.map((item, index) => {
 									return (
-										<div
-											className='DetailPage-One-SmallPhoto'
-											onClick={() => setBigPhoto(index)}
-										>
-											<img
-												className='DetailPage-One-SmallPhoto-Img'
-												src={item}
-											/>
+										<div className='DetailPage-One-SmallPhoto' onClick={() => setBigPhoto(index)}>
+											<img className='DetailPage-One-SmallPhoto-Img' src={item} />
 										</div>
 									);
 								})}
@@ -122,23 +129,27 @@ function DetailPage() {
 						</div>
 
 						<div className='DetailPage-Desc'>
-							<div className='DetailPage-Desc-Ratio'>
-								<div className='BikeCard-One-Data-Trans'>Darmowa dostawa</div>
-							</div>
+							<div className='DetailPage-Desc-Ratio'>{data.bike.bikeTransport && <div className='BikeCard-One-Data-Trans'>Darmowa dostawa</div>}</div>
 							<div className='BikeCard-One-Data-Name'>{data.bike.bikeName}</div>
 							<div className='BikeCard-One-Data-Ratio'>
 								{" "}
-								<p>5</p>{" "}
-								<AiFillStar color='#ffa500' size='55px' style={{ margin: "5px" }} />
+								<p>5</p> <AiFillStar color='#ffa500' size='55px' style={{ margin: "5px" }} />
 							</div>
 							<div className='BikeCard-One-Data-Data'>Model: {data.bike.bikeModel}</div>
 							<div className='BikeCard-One-Data-Data'>Kolekcja: {data.bike.bikeYear}</div>
 							<div className='BikeCard-One-Data-Data'>Rama: {data.bike.bikeFrame}</div>
 							<div className='DetailPage-Desc-Price'>
-								<div className='DetailPage-Desc-Pirce-Cena'>Cena:</div>
-								<div className='DetailPage-Desc-Price-Price'>
-									{data.bike.bikePrice} zł
-								</div>
+								{data.bike.bikeSale ? (
+									<div>
+										<div className='DetailPage-Desc-Price-Price' style={{ color: "black", textDecoration: "line-through" }}>
+											{data.bike.bikePrice} zł
+										</div>
+										<div className='DetailPage-Desc-Price-Price'>{data.bike.bikeSaleNewPrice} zł</div>
+									</div>
+								) : (
+									<div className='DetailPage-Desc-Price-Price'>{data.bike.bikePrice} zł</div>
+								)}
+								{/* <div className='DetailPage-Desc-Price-Price'>{data.bike.bikePrice} zł</div> */}
 							</div>
 							<div className='DetailPage-Desc-ColorTitle'>Wersje kolorystyczne:</div>
 							<div className='DetailPage-Desc-Colors'>
@@ -149,8 +160,7 @@ function DetailPage() {
 												<div
 													className='DetailPage-Desc-Icon'
 													style={{
-														backgroundColor:
-															"#f3f3f3",
+														backgroundColor: "#f3f3f3",
 													}}
 												></div>
 											) : (
@@ -161,9 +171,7 @@ function DetailPage() {
 													}}
 												></div>
 											)}
-											<div className='DetailPage-Desc-ColorName'>
-												{item}
-											</div>
+											<div className='DetailPage-Desc-ColorName'>{item}</div>
 										</div>
 									);
 								})}
@@ -202,42 +210,37 @@ function DetailPage() {
 										return (
 											<div className='DetailPage-Two-Comment'>
 												<div className='createComment-userPhoto'>
-													<img
-														src={
-															comment
-																.commentedBy
-																.photo
-														}
-														width='100%'
-													/>
+													<img src={comment.commentedBy.photo} width='100%' />
 												</div>
 												<div className='DetailPage-Two-Comment-Data'>
 													<div className='DetailPage-Two-Comment-Top'>
-														<div className='DetailPage-Two-Comment-Top-Name'>
-															{
-																comment
-																	.commentedBy
-																	.name
-															}
-														</div>
+														<div className='DetailPage-Two-Comment-Top-Name'>{comment.commentedBy.name}</div>
 														<div className='DetailPage-Two-Comment-Top-Date'>
-															{
-																comment.commentDate
-															}
+															{comment.commentDate}
 															20-20-20
 														</div>
 													</div>
-													<div className='DetailPage-Two-Comment-Mid'>
-														{
-															comment.comment
-														}
-													</div>
+													<div className='DetailPage-Two-Comment-Mid'>{comment.comment}</div>
 													<div className='DetailPage-Two-Comment-Bottom'>
 														<div>
-															5{" "}
-															<AiFillStar color='#ffa500' />
+															5 <AiFillStar color='#ffa500' />
 														</div>
 													</div>
+													{comment.commentedBy.id == ProviedProfileContext.data.myProfile.id && (
+														<div className='DeleteComment'>
+															<RiChatDeleteFill
+																size='20px'
+																color='#ff3838'
+																onClick={() => {
+																	deleteComment({
+																		variables: {
+																			id: comment.id,
+																		},
+																	});
+																}}
+															/>
+														</div>
+													)}
 												</div>
 											</div>
 										);
@@ -246,10 +249,7 @@ function DetailPage() {
 							</div>
 							<div className='createComment'>
 								<div className='createComment-userPhoto'>
-									<img
-										src={ProviedProfileContext.data.myProfile.photo}
-										width='100%'
-									/>
+									<img src={ProviedProfileContext.data.myProfile.photo} width='100%' />
 								</div>
 								<div>
 									<div class='rating rating2'>
@@ -273,9 +273,7 @@ function DetailPage() {
 									<div className='Contact-InputField'>
 										<input
 											className='Contact-SearchInput'
-											onChange={(e) =>
-												setComment(e.target.value)
-											}
+											onChange={(e) => setComment(e.target.value)}
 											value={comment}
 											style={{
 												backgroundColor: "#383838",

@@ -5,7 +5,7 @@ import { LogoContext } from "../App";
 import { Link, useHistory } from "react-router-dom";
 
 //ICONS
-import { AiOutlineLogin, AiFillHome, AiOutlineSearch, AiOutlineShoppingCart, AiOutlineLogout } from "react-icons/ai";
+import { AiOutlineArrowUp, AiOutlineLogin, AiFillHome, AiOutlineSearch, AiOutlineShoppingCart, AiOutlineLogout } from "react-icons/ai";
 import { SiShopify } from "react-icons/si";
 
 export const MyProfileContext = React.createContext();
@@ -15,6 +15,7 @@ const MY_PROFILE = gql`
 		myProfile {
 			id
 			name
+			admin
 			shoppingCart {
 				id
 				bikeName
@@ -28,7 +29,15 @@ const MY_PROFILE = gql`
 	}
 `;
 
+const ScrollToTop = () => {
+	window.scrollTo({
+		top: 0,
+		behavior: "smooth",
+	});
+};
+
 function Navbar({ children }) {
+	console.log("RENDERUJE SIE");
 	const { loading, error, data, refetch, networkStatus } = useQuery(MY_PROFILE, {
 		pollInterval: 500,
 	});
@@ -90,6 +99,9 @@ function Navbar({ children }) {
 				}}
 			>
 				<React.Fragment>{children}</React.Fragment>
+				<div className='scrollTop' onClick={() => ScrollToTop()}>
+					<AiOutlineArrowUp size='40px' />
+				</div>
 			</MyProfileContext.Provider>
 		</React.Fragment>
 	);

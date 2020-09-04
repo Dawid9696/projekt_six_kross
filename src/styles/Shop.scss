@@ -1,10 +1,15 @@
+/** @format */
+
 .Section-Three-Shop {
 	margin: 0px;
 	padding: 0px;
+	width: 800px;
+	height: 10000px;
 	box-sizing: border-box;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-self: flex-start;
 	flex-direction: column;
 }
 
@@ -19,6 +24,22 @@
 	flex-direction: row;
 }
 
+.ShopContentFetchMore {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 5px;
+	padding: 10px;
+	font-size: 20px;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	color: grey;
+}
+
+.ShopContentFetchMore:hover {
+	cursor: pointer;
+}
+
 // .Section-Three-Shop-SortTab-Selection{
 //   border: unset;
 // }
@@ -29,12 +50,13 @@
 	display: flex;
 	width: 100%;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 	flex-direction: column;
 }
 .BikeCard {
 	margin: 0px;
 	padding: 0px;
+	position: relative;
 	box-sizing: border-box;
 	display: flex;
 	width: 95%;
@@ -46,6 +68,7 @@
 .BikeCard-One {
 	margin: 0px;
 	padding: 0px;
+	width: 50%;
 	box-sizing: border-box;
 	display: flex;
 	justify-content: center;
@@ -140,6 +163,7 @@
 .BikeCard-Two {
 	margin: 0px;
 	padding: 0px;
+	width: 50%;
 	box-sizing: border-box;
 	display: flex;
 	justify-content: center;
@@ -150,23 +174,40 @@
 	font-size: 25px;
 	font-weight: 500;
 	letter-spacing: 1px;
-	margin: 10px;
-	padding: 0px;
-	width: 120px;
-	box-sizing: border-box;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: row;
-}
-.BikeCard-Two-Options {
 	margin: 0px;
 	padding: 0px;
+	width: 50%;
 	box-sizing: border-box;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+}
+.BikeCard-Two-Options {
+	margin: 0px;
+	padding: 0px;
+	width: 50%;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.DeleteBike {
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	top: 1%;
+	right: 1%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.DeleteBike:hover {
+	cursor: pointer;
 }
 // .BikeCard-Two-Options-Check{
 //     font-size:25px;
@@ -267,9 +308,8 @@
 	right: 0;
 	bottom: 0;
 	background: rgb(77, 77, 77);
-	box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
-		-4px -4px 5px 0px rgba(255, 255, 255, 0.9),
-		7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9), -4px -4px 5px 0px rgba(255, 255, 255, 0.9), 7px 7px 20px 0px rgba(0, 0, 0, 0.2),
+		4px 4px 5px 0px rgba(0, 0, 0, 0.3);
 	transition: all 0.3s ease;
 }
 .btn-7:before {
@@ -297,9 +337,8 @@
 	left: 0;
 	top: 0;
 	background: rgb(77, 77, 77);
-	box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
-		-4px -4px 5px 0px rgba(255, 255, 255, 0.9),
-		7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9), -4px -4px 5px 0px rgba(255, 255, 255, 0.9), 7px 7px 20px 0px rgba(0, 0, 0, 0.2),
+		4px 4px 5px 0px rgba(0, 0, 0, 0.3);
 	transition: all 0.3s ease;
 }
 .btn-7 span:before {

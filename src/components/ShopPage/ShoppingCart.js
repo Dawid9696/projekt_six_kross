@@ -4,8 +4,8 @@ import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { TiDeleteOutline } from "react-icons/ti";
 
-import Loader from "./Loader";
-import { MyProfileContext } from "./Navbar";
+import Loader from "../Loader";
+import { MyProfileContext } from "../Navbar";
 
 const DELETE_FROM_SHOPPINGCART = gql`
 	mutation deleteFromShoppingCart($id: ID!) {
